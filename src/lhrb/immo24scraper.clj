@@ -43,9 +43,8 @@
     {:title title :address address :criteria criteria :url url}))
 
 (defn output-mail [mail-fn obj-ids]
-  (let [url (map #(str "https://www.immobilienscout24.de/expose/" %) obj-ids)]
-    (doall
-     (pmap #(mail-fn (get-expose %)) url))))
+  (doseq [url (map #(str "https://www.immobilienscout24.de/expose/" %) obj-ids)]
+    (future (mail-fn (get-expose url)))))
 
 (def cli-options
   [["-i" "--interval"
