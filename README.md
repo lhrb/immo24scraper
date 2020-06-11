@@ -3,9 +3,11 @@
 A web scraper for immobilenscout24 that will send you an email everytime a new offer (matching your search cirteria) goes online 
 
 > Why should I use this? Immobilenscout24 already has a notification feature.
+
 However, the notification feature appeared to be kind of unreliable, so I came up with this DIY solution.
 
 > Where should I run this?
+
 e.g. raspberry pi, heroku dyno or any pc running 24/7
 
 ## Usage
