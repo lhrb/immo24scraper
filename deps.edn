@@ -1,0 +1,20 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        com.draines/postal {:mvn/version "2.0.3"}
+        org.jsoup/jsoup {:mvn/version "1.7.3"}
+        org.clojure/tools.logging {:mvn/version "1.1.0"}
+        org.apache.logging.log4j/log4j-core {:mvn/version "2.13.3"}
+        org.apache.logging.log4j/log4j-api {:mvn/version "2.13.3"}
+        org.clojure/tools.cli {:mvn/version "1.0.194"}}
+ :aliases
+ {:test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "0.10.0"}}}
+  :runner
+  {:extra-deps {com.cognitect/test-runner
+                {:git/url "https://github.com/cognitect-labs/test-runner"
+                 :sha "f7ef16dc3b8332b0d77bc0274578ad5270fbfedd"}}
+   :main-opts ["-m" "cognitect.test-runner"
+               "-d" "test"]}
+  :uberjar {:extra-deps {seancorfield/depstar {:mvn/version "0.5.2"}}
+            :main-opts ["-m" "hf.depstar.uberjar" "immo24scraper.jar"
+                        "-C" "-m" "lhrb.immo24scraper"]}}}
