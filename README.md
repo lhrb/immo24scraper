@@ -4,7 +4,7 @@ A web scraper for immobilenscout24 that will send you an email everytime a new o
 
 > Why should I use this? Immobilenscout24 already has a notification feature.
 
-However, the notification feature appeared to be kind of unreliable, so I came up with this DIY solution.
+However, the notification feature appeared to be unreliable, so I came up with this DIY solution.
 
 > Where should I run this?
 
