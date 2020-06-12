@@ -27,20 +27,24 @@
 
 (defn get-obj-ids
   [url]
-  (let [html (get-page url)
-        elems (get-elems html "#resultListItems > li")]
-    (->> elems
-         (map #(.attr % "data-id"))
-         (filter #(seq %))
-         set)))
+  (try
+    (let [html (get-page url)
+         elems (get-elems html "#resultListItems > li")]
+     (->> elems
+          (map #(.attr % "data-id"))
+          (filter #(seq %))
+          set))
+    (catch Exception e (log/warn e))))
 
 (defn get-expose
   [url]
-  (let [html (get-page url)
-        title (.text (get-elems html "#expose-title"))
-        address (.text (get-elems html ".address-block"))
-        criteria (.text (get-elems html ".main-criteria-container"))]
-    {:title title :address address :criteria criteria :url url}))
+  (try
+    (let [html (get-page url)
+         title (.text (get-elems html "#expose-title"))
+         address (.text (get-elems html ".address-block"))
+         criteria (.text (get-elems html ".main-criteria-container"))]
+      {:title title :address address :criteria criteria :url url})
+    (catch Exception e (log/warn e))))
 
 (defn output-mail [mail-fn obj-ids]
   (doseq [url (map #(str "https://www.immobilienscout24.de/expose/" %) obj-ids)]
