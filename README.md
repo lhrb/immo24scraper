@@ -1,3 +1,5 @@
+# Does not work anymore
+
 # immo24scraper
 
 A web scraper for immobilenscout24 that will send you an email everytime a new offer (matching your search cirteria) goes online 
